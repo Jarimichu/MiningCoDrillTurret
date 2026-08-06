@@ -12,4 +12,10 @@
   <MCDT.OresOnlyTT>In this mode, the mining turret only drill nearby ores. Click to switch mode.</MCDT.OresOnlyTT>
   <MCDT.IdleDrill>Idle drill turret</MCDT.IdleDrill>
   <MCDT.IdleDrillTT>You have an idle drill turret. You should maybe move it or designate more rocks to drill.</MCDT.IdleDrillTT>
+  <MCDT.PowerModeLow>Low power</MCDT.PowerModeLow>
+  <MCDT.PowerModeLowTT>Draws 500W and mines at half speed. Click to switch mode.</MCDT.PowerModeLowTT>
+  <MCDT.PowerModeMedium>Medium power</MCDT.PowerModeMedium>
+  <MCDT.PowerModeMediumTT>Draws 1000W and mines at normal speed. Click to switch mode.</MCDT.PowerModeMediumTT>
+  <MCDT.PowerModeHigh>High power</MCDT.PowerModeHigh>
+  <MCDT.PowerModeHighTT>Draws 1500W and mines at 1.5x speed. Click to switch mode.</MCDT.PowerModeHighTT>
 </LanguageData>
