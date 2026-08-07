@@ -12,4 +12,6 @@
   <MCDT.OresOnlyTT>In this mode, the mining turret only drill nearby ores. Click to switch mode.</MCDT.OresOnlyTT>
   <MCDT.IdleDrill>Idle drill turret</MCDT.IdleDrill>
   <MCDT.IdleDrillTT>You have an idle drill turret. You should maybe move it or designate more rocks to drill.</MCDT.IdleDrillTT>
+  <MCDT.EnableIdlePowerDraw>Reduce power draw while idle</MCDT.EnableIdlePowerDraw>
+  <MCDT.EnableIdlePowerDrawTT>When enabled, drill turrets only draw 25W while idle (no target in range), ramping up to full power while actively drilling. Disabled by default so existing setups keep drawing full power at all times.</MCDT.EnableIdlePowerDrawTT>
 </LanguageData>

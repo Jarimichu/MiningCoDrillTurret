@@ -91,7 +91,8 @@ internal class Building_DrillTurret : Building
 
     private void updatePowerConsumption()
     {
-        powerComp.PowerOutput = -(TargetPosition.IsValid ? powerComp.Props.PowerConsumption : IdlePowerConsumption);
+        var idle = DrillTurretMod.Settings.EnableIdlePowerDraw && !TargetPosition.IsValid;
+        powerComp.PowerOutput = -(idle ? IdlePowerConsumption : powerComp.Props.PowerConsumption);
     }
 
     public override void ExposeData()
