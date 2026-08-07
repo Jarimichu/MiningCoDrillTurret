@@ -15,6 +15,8 @@ internal class Building_DrillTurret : Building
 
     public const int DrillPeriodInTicks = 30;
 
+    private const float IdlePowerConsumption = 25f;
+
     private static readonly Material turretTopOnTexture = MaterialPool.MatFrom("Things/Building/DrillTurret_On");
 
     public static Material TurretTopOffTexture = MaterialPool.MatFrom("Things/Building/DrillTurret_Off");
@@ -70,6 +72,7 @@ internal class Building_DrillTurret : Building
         }
 
         powerComp.powerStoppedAction = OnPoweredOff;
+        updatePowerConsumption();
         turretTopMatrix.SetTRS(base.DrawPos + Altitudes.AltIncVect, turretTopRotation.ToQuat(), turretTopScale);
     }
 
@@ -84,6 +87,12 @@ internal class Building_DrillTurret : Building
         TargetPosition = IntVec3.Invalid;
         stopLaserDrillEffecter();
         drillEfficiencyInPercent = 0;
+    }
+
+    private void updatePowerConsumption()
+    {
+        var idle = DrillTurretMod.Settings.EnableIdlePowerDraw && !TargetPosition.IsValid;
+        powerComp.PowerOutput = -(idle ? IdlePowerConsumption : powerComp.Props.PowerConsumption);
     }
 
     public override void ExposeData()
@@ -122,6 +131,7 @@ internal class Building_DrillTurret : Building
     protected override void Tick()
     {
         base.Tick();
+        updatePowerConsumption();
         if (!powerComp.PowerOn)
         {
             return;

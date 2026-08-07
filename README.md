@@ -1,5 +1,5 @@
 # [MiningCo. DrillTurret (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3258344832)
-
+
 ![Image](https://i.imgur.com/buuPQel.png)
 
 Update of Rikikis mod https://steamcommunity.com/sharedfiles/filedetails/?id=974398773
@@ -24,6 +24,7 @@ Adds a new turret: the drill turret.
 - mining mode can be switched (only ores, only rocks and both).
 - manning the turret will improves its drilling speed (level 20 miner using drill turret mines 2x faster).
 - drill efficiency and yield resources can be improved via one additional research.
+- optional mod setting: reduce power draw to 25W while idle (no target in range), ramping up to full power while actively drilling. Disabled by default.
 
 
 
