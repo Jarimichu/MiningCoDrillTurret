@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <MCDT.CurrentModVersion>Installed mod-version: {0}</MCDT.CurrentModVersion>
   <MCDT.DesignatedOnly>Only designated</MCDT.DesignatedOnly>
   <MCDT.DesignatedOnlyTT>Only mine tiles that are designated for mining</MCDT.DesignatedOnlyTT>
   <MCDT.SetTarget>Set target</MCDT.SetTarget>
@@ -13,5 +14,5 @@
   <MCDT.IdleDrill>Idle drill turret</MCDT.IdleDrill>
   <MCDT.IdleDrillTT>You have an idle drill turret. You should maybe move it or designate more rocks to drill.</MCDT.IdleDrillTT>
   <MCDT.EnableIdlePowerDraw>Reduce power draw while idle</MCDT.EnableIdlePowerDraw>
-  <MCDT.EnableIdlePowerDrawTT>When enabled, drill turrets only draw 25W while idle (no target in range), ramping up to full power while actively drilling. Disabled by default so existing setups keep drawing full power at all times.</MCDT.EnableIdlePowerDrawTT>
+  <MCDT.EnableIdlePowerDrawTT>When enabled, drill turrets only draw 25W while idle (no target in range), ramping up to full power while actively drilling.</MCDT.EnableIdlePowerDrawTT>
 </LanguageData>

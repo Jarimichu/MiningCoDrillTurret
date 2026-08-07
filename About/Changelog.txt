@@ -1,5 +1,9 @@
 # Changelog for MiningCoDrillTurret
 
+1.6.2 - Added option for the drill to use less power on idle, thanks to Jarimichu
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.6.1 - Fixed on-off texture for the turret top
 
 

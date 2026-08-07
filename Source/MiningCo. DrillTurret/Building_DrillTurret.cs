@@ -19,7 +19,7 @@ internal class Building_DrillTurret : Building
 
     private static readonly Material turretTopOnTexture = MaterialPool.MatFrom("Things/Building/DrillTurret_On");
 
-    public static Material TurretTopOffTexture = MaterialPool.MatFrom("Things/Building/DrillTurret_Off");
+    private static readonly Material turretTopOffTexture = MaterialPool.MatFrom("Things/Building/DrillTurret_Off");
 
     private static readonly Material laserBeamTexture =
         MaterialPool.MatFrom("Effects/DrillTurret_LaserBeam", ShaderDatabase.Transparent);
@@ -444,7 +444,7 @@ internal class Building_DrillTurret : Building
         }
         else
         {
-            Graphics.DrawMesh(MeshPool.plane10, turretTopMatrix, TurretTopOffTexture, 0);
+            Graphics.DrawMesh(MeshPool.plane10, turretTopMatrix, turretTopOffTexture, 0);
         }
     }
 
