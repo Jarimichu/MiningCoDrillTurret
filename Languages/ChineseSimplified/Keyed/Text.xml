@@ -16,4 +16,10 @@
   <MCDT.CurrentModVersion>已安装 MOD 版本：{0}</MCDT.CurrentModVersion>
   <MCDT.EnableIdlePowerDraw>闲置时降低功耗</MCDT.EnableIdlePowerDraw>
   <MCDT.EnableIdlePowerDrawTT>启用后，钻探炮塔在空闲状态（范围内无目标）时仅消耗 25W 电力，在积极钻探时会逐渐提升至满功率。</MCDT.EnableIdlePowerDrawTT>
+  <MCDT.PowerModeLow>低功率</MCDT.PowerModeLow>
+  <MCDT.PowerModeLowTT>功耗500W，开采速度减半。点击切换模式。</MCDT.PowerModeLowTT>
+  <MCDT.PowerModeMedium>中等功率</MCDT.PowerModeMedium>
+  <MCDT.PowerModeMediumTT>功耗1000W，以正常速度开采。点击切换模式。</MCDT.PowerModeMediumTT>
+  <MCDT.PowerModeHigh>高功率</MCDT.PowerModeHigh>
+  <MCDT.PowerModeHighTT>功耗1500W，开采速度提升至1.5倍。点击切换模式。</MCDT.PowerModeHighTT>
 </LanguageData>

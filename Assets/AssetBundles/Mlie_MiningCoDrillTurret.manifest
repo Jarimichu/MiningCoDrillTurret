@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 341053492
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9170bf5ac44bcac8e5486e91d3cb9cc3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2612ac43db082a73502ee80f2eceb73f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 9170bf5ac44bcac8e5486e91d3cb9cc3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchMode_Both.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Things/Building/DrillTurret_Off.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Effects/DrillTurret_LaserBeam.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchMode.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchPower_Medium.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchPower_Low.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchMode_Ores.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Things/Building/DrillTurret_On.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchMode_Rocks.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Things/Building/MenuIcon_DrillTurret.png
+- Assets/Data/Mlie.MiningCoDrillTurret/Textures/Ui/Commands/CommandButton_SwitchPower_High.png
+Dependencies: []

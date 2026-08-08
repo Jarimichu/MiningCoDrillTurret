@@ -16,4 +16,10 @@
   <MCDT.CurrentModVersion>Version installée du mod : {0}</MCDT.CurrentModVersion>
   <MCDT.EnableIdlePowerDraw>Réduire la consommation d'énergie en veille</MCDT.EnableIdlePowerDraw>
   <MCDT.EnableIdlePowerDrawTT>Lorsqu'elles sont activées, les tourelles de forage ne consomment que 25 W en veille (aucune cible à portée), puis montent en puissance jusqu'à leur pleine puissance lorsqu'elles forent activement.</MCDT.EnableIdlePowerDrawTT>
+  <MCDT.PowerModeLow>Faible puissance</MCDT.PowerModeLow>
+  <MCDT.PowerModeLowTT>Consomme 500 W et mine à moitié vitesse. Cliquez pour changer de mode.</MCDT.PowerModeLowTT>
+  <MCDT.PowerModeMedium>Puissance moyenne</MCDT.PowerModeMedium>
+  <MCDT.PowerModeMediumTT>Consomme 1 000 W et extrait à vitesse normale. Cliquez pour changer de mode.</MCDT.PowerModeMediumTT>
+  <MCDT.PowerModeHigh>Haute puissance</MCDT.PowerModeHigh>
+  <MCDT.PowerModeHighTT>Consomme 1 500 W et mine à une vitesse 1,5 fois supérieure. Cliquez pour changer de mode.</MCDT.PowerModeHighTT>
 </LanguageData>

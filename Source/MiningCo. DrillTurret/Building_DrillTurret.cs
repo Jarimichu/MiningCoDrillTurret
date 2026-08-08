@@ -53,9 +53,9 @@ internal class Building_DrillTurret : Building
 
     private float operatorEfficiency;
 
-    private PowerMode powerMode = PowerMode.High;
-
     private CompPowerTrader powerComp;
+
+    private PowerMode powerMode = PowerMode.High;
 
     public IntVec3 TargetPosition = IntVec3.Invalid;
 
@@ -144,7 +144,6 @@ internal class Building_DrillTurret : Building
         {
             PowerMode.Low => 500,
             PowerMode.Medium => 1000,
-            PowerMode.High => 1500,
             _ => 1500
         };
     }
@@ -350,18 +349,20 @@ internal class Building_DrillTurret : Building
             case MiningMode.Ores:
                 commandAction.defaultLabel = "MCDT.OresOnly".Translate();
                 commandAction.defaultDesc = "MCDT.OresOnlyTT".Translate();
+                commandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchMode_Ores");
                 break;
             case MiningMode.Rocks:
                 commandAction.defaultLabel = "MCDT.RocksOnly".Translate();
                 commandAction.defaultDesc = "MCDT.RocksOnlyTT".Translate();
+                commandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchMode_Rocks");
                 break;
             case MiningMode.OresAndRocks:
                 commandAction.defaultLabel = "MCDT.OresRocks".Translate();
                 commandAction.defaultDesc = "MCDT.OresRocksTT".Translate();
+                commandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchMode_Both");
                 break;
         }
 
-        commandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchMode");
         commandAction.activateSound = SoundDef.Named("Click");
         commandAction.action = switchMiningMode;
         commandAction.groupKey = num + 1;
@@ -372,18 +373,22 @@ internal class Building_DrillTurret : Building
             case PowerMode.Low:
                 powerModeCommandAction.defaultLabel = "MCDT.PowerModeLow".Translate();
                 powerModeCommandAction.defaultDesc = "MCDT.PowerModeLowTT".Translate();
+                powerModeCommandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchPower_Low");
                 break;
             case PowerMode.Medium:
                 powerModeCommandAction.defaultLabel = "MCDT.PowerModeMedium".Translate();
                 powerModeCommandAction.defaultDesc = "MCDT.PowerModeMediumTT".Translate();
+                powerModeCommandAction.icon =
+                    ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchPower_Medium");
                 break;
             case PowerMode.High:
                 powerModeCommandAction.defaultLabel = "MCDT.PowerModeHigh".Translate();
                 powerModeCommandAction.defaultDesc = "MCDT.PowerModeHighTT".Translate();
+                powerModeCommandAction.icon =
+                    ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchPower_High");
                 break;
         }
 
-        powerModeCommandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchMode");
         powerModeCommandAction.activateSound = SoundDef.Named("Click");
         powerModeCommandAction.action = switchPowerMode;
         powerModeCommandAction.groupKey = num + 7;
