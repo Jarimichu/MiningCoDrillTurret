@@ -53,6 +53,8 @@ internal class Building_DrillTurret : Building
 
     private float operatorEfficiency;
 
+    private PowerMode powerMode = PowerMode.High;
+
     private CompPowerTrader powerComp;
 
     public IntVec3 TargetPosition = IntVec3.Invalid;
@@ -89,12 +91,6 @@ internal class Building_DrillTurret : Building
         drillEfficiencyInPercent = 0;
     }
 
-    private void updatePowerConsumption()
-    {
-        var idle = DrillTurretMod.Settings.EnableIdlePowerDraw && !TargetPosition.IsValid;
-        powerComp.PowerOutput = -(idle ? IdlePowerConsumption : powerComp.Props.PowerConsumption);
-    }
-
     public override void ExposeData()
     {
         base.ExposeData();
@@ -102,6 +98,7 @@ internal class Building_DrillTurret : Building
         Scribe_Values.Look(ref miningMode, "MiningMode");
         Scribe_Values.Look(ref turretTopRotation, "turretTopRotation");
         Scribe_Values.Look(ref designatedOnly, "designatedOnly");
+        Scribe_Values.Look(ref powerMode, "PowerMode", PowerMode.High);
     }
 
     public void SetOperatorEfficiency(float efficiency)
@@ -125,7 +122,37 @@ internal class Building_DrillTurret : Building
             num += 0.25f;
         }
 
+        num *= getPowerModeSpeedMultiplier();
+
         return Mathf.Clamp01(num);
+    }
+
+    private float getPowerModeSpeedMultiplier()
+    {
+        return powerMode switch
+        {
+            PowerMode.Low => 0.5f,
+            PowerMode.Medium => 1f,
+            PowerMode.High => 1.5f,
+            _ => 1f
+        };
+    }
+
+    private int getPowerModeWattage()
+    {
+        return powerMode switch
+        {
+            PowerMode.Low => 500,
+            PowerMode.Medium => 1000,
+            PowerMode.High => 1500,
+            _ => 1500
+        };
+    }
+
+    private void updatePowerConsumption()
+    {
+        var idle = DrillTurretMod.Settings.EnableIdlePowerDraw && !TargetPosition.IsValid;
+        powerComp.PowerOutput = -(idle ? IdlePowerConsumption : getPowerModeWattage());
     }
 
     protected override void Tick()
@@ -308,6 +335,8 @@ internal class Building_DrillTurret : Building
         var stringBuilder = new StringBuilder(base.GetInspectString());
         stringBuilder.AppendLine();
         stringBuilder.Append($"Drill efficiency: {drillEfficiencyInPercent}%");
+        stringBuilder.AppendLine();
+        stringBuilder.Append($"Power mode: {powerMode} ({getPowerModeWattage()}W)");
         return stringBuilder.ToString();
     }
 
@@ -337,6 +366,28 @@ internal class Building_DrillTurret : Building
         commandAction.action = switchMiningMode;
         commandAction.groupKey = num + 1;
         list.Add(commandAction);
+        var powerModeCommandAction = new Command_Action();
+        switch (powerMode)
+        {
+            case PowerMode.Low:
+                powerModeCommandAction.defaultLabel = "MCDT.PowerModeLow".Translate();
+                powerModeCommandAction.defaultDesc = "MCDT.PowerModeLowTT".Translate();
+                break;
+            case PowerMode.Medium:
+                powerModeCommandAction.defaultLabel = "MCDT.PowerModeMedium".Translate();
+                powerModeCommandAction.defaultDesc = "MCDT.PowerModeMediumTT".Translate();
+                break;
+            case PowerMode.High:
+                powerModeCommandAction.defaultLabel = "MCDT.PowerModeHigh".Translate();
+                powerModeCommandAction.defaultDesc = "MCDT.PowerModeHighTT".Translate();
+                break;
+        }
+
+        powerModeCommandAction.icon = ContentFinder<Texture2D>.Get("Ui/Commands/CommandButton_SwitchMode");
+        powerModeCommandAction.activateSound = SoundDef.Named("Click");
+        powerModeCommandAction.action = switchPowerMode;
+        powerModeCommandAction.groupKey = num + 7;
+        list.Add(powerModeCommandAction);
         list.Add(new Command_Action
         {
             icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack"),
@@ -381,6 +432,24 @@ internal class Building_DrillTurret : Building
         }
 
         resetTarget();
+    }
+
+    private void switchPowerMode()
+    {
+        switch (powerMode)
+        {
+            case PowerMode.Low:
+                powerMode = PowerMode.Medium;
+                break;
+            case PowerMode.Medium:
+                powerMode = PowerMode.High;
+                break;
+            case PowerMode.High:
+                powerMode = PowerMode.Low;
+                break;
+        }
+
+        updatePowerConsumption();
     }
 
     private void selectTarget()
@@ -453,5 +522,12 @@ internal class Building_DrillTurret : Building
         Ores,
         Rocks,
         OresAndRocks
+    }
+
+    private enum PowerMode
+    {
+        Low,
+        Medium,
+        High
     }
 }
